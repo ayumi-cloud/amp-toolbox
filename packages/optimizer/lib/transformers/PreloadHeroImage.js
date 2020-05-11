@@ -16,7 +16,7 @@
 
 'use strict';
 
-const {createElement, nextNode, insertAfter, firstChildByTag} = require('../NodeUtils');
+const {createElement, hasAttribute, insertAfter, firstChildByTag} = require('../NodeUtils');
 const {findMetaViewport} = require('../HtmlDomHelper');
 const parseSrcSet = require('../parseSrcSet');
 
@@ -134,8 +134,7 @@ class PreloadHeroImage {
     for (const child of ampIframe.children) {
       if (
         child.tagName === 'amp-img' &&
-        child.attribs &&
-        child.attribs.placeholder !== undefined &&
+        hasAttribute(child, 'placeholder') &&
         this.isValidUrl(child.attribs.src)
       ) {
         return {src: child.attribs.src, srcset: child.attribs.srcset || ''};
