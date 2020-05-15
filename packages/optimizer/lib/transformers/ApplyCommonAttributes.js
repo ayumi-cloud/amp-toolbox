@@ -120,7 +120,7 @@ class SizesTransformer {
 }
 
 /**
- * Transforms a sizes attribute into CSS by creating media queries for each size.
+ * Transforms a heights attribute into CSS by creating media queries for each height.
  */
 class HeightsTransformer {
   constructor() {
